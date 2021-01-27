@@ -10,12 +10,38 @@ int LinearSearch(int ar[],int len, int target)
     return -1;
 }
 
+int BinarySearch(int ar[],int len, int target)
+{
+    int first=0;
+    int last=len-1;
+    int mid;
+
+    while(first<=last)
+    {
+        mid=(first+last)/2;
+
+        if(target==ar[mid])
+            return mid;
+
+        else
+        {
+            if(target<ar[mid])
+                last=mid-1;
+            else
+                first=mid+1;
+        }
+    }
+    return -1;
+}
+
 int main() {
 
     int arr[]={3,5,2,4,9}; //길이5
     int idx;
 
-    idx = Lsearch(arr,sizeof(arr)/sizeof(int),4);
+    //idx = Lsearch(arr,sizeof(arr)/sizeof(int),4);
+    idx=BinarySearch(arr,sizeof(arr)/sizeof(int),7);
+
     
     if(idx==-1)
         cout<<"탐색 실패\n";
@@ -33,4 +59,7 @@ int main() {
         cout<<"타겟 저장 인덱스:"<<idx<<endl;
 
     return 0;
+
+
+
 }
