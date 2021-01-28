@@ -1,3 +1,4 @@
+#include <iostream>
 using namespace std;
 
 int LinearSearch(int ar[],int len, int target)
@@ -31,6 +32,35 @@ int BinarySearch(int ar[],int len, int target)
                 first=mid+1;
         }
     }
+    return -1;
+}
+
+int BinarySearch2(int ar[],int len,int target)
+{
+    int first=0;
+    int last=len-1;
+    int mid;
+    int opCount=0;
+
+    while(first<=last)
+    {
+        mid=(first+last)/2;
+
+        if(target==ar[mid])
+        {
+            return mid;
+        }
+        else{
+            if(target<ar[mid])
+                last=mid-1;
+            else
+                first=mid+1;
+        }
+        opCount+=1;
+    }
+
+    cout<<"비교연산횟수:"<<opCount<<endl;
+    
     return -1;
 }
 
