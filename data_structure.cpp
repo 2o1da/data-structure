@@ -64,6 +64,15 @@ int BinarySearch2(int ar[],int len,int target)
     return -1;
 }
 
+int Recursive(int num)
+{
+    if(num<=0)
+        return;
+    cout<<"Recursive call:"<<num<<endl;
+    Recursive(num-1);
+}
+
+
 int main() {
 
     int arr[]={3,5,2,4,9}; //길이5
@@ -90,6 +99,8 @@ int main() {
 
     return 0;
 
+    int arr1[500]={0,}; //모든 요소 0으로 초기화
 
 
+    Recursive(3);    
 }
