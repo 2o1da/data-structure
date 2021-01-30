@@ -72,6 +72,31 @@ int Recursive(int num)
     Recursive(num-1);
 }
 
+int Factorial(int n)
+{
+    if(n==0)
+        return 1;
+
+    else
+    {
+        return n*Factorial(n-1);
+    }   
+}
+
+int Fibo(int n)
+{
+    if(n==1)
+        return 0;
+
+    else if(n==2)
+        return 1;
+    
+    else
+    {
+        return Fibo(n-1)+Fibo(n-2);
+    }
+}
+
 
 int main() {
 
