@@ -85,6 +85,8 @@ int Factorial(int n)
 
 int Fibo(int n)
 {
+    cout<<"func call param "<<n<<endl;
+
     if(n==1)
         return 0;
 
@@ -96,7 +98,6 @@ int Fibo(int n)
         return Fibo(n-1)+Fibo(n-2);
     }
 }
-
 
 int main() {
 
