@@ -99,6 +99,24 @@ int Fibo(int n)
     }
 }
 
+int BinarySearchRecur(int ar[],int first, int last, int target)
+{
+    int main;
+    if(first>last)
+        return -1;
+    mid=(first+last)/2;
+
+    if(ar[mid]==target)
+        return mid;
+    else if(target<ar[mid])
+        return BinarySearchRecur(ar,first,mid-1,target);
+    else
+    {
+        return BinarySearchRecur(ar,mid+1,last,target);
+    }
+    
+}
+
 int main() {
 
     int arr[]={3,5,2,4,9}; //길이5
