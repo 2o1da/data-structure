@@ -117,6 +117,22 @@ int BinarySearchRecur(int ar[],int first, int last, int target)
     
 }
 
+void HanoiTowerMove(int num,char from,char by, char to)
+{
+    if(num==1)
+    {
+        cout<<"원반1을 "<<from<<"에서 "<<to<<"로 이동\n";
+    }
+
+    else
+    {
+        HanoiTowerMove(num-1,from,to,by);
+        cout<<"원반"<<num<<"을(를) "<<from<<"에서 "<<to<<"로 이동\n";
+        HanoiTowerMove(num-1,by,from,to);
+    }    
+}
+
+
 int main() {
 
     int arr[]={3,5,2,4,9}; //길이5
@@ -146,5 +162,10 @@ int main() {
     int arr1[500]={0,}; //모든 요소 0으로 초기화
 
 
-    Recursive(3);    
+    Recursive(3);
+    
+    
+    HanoiTowerMove(3,'A','B','C');
+    return 0;
+    
 }
