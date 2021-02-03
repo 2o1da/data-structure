@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 using namespace std;
 
 int LinearSearch(int ar[],int len, int target)
@@ -168,4 +169,65 @@ int main() {
     HanoiTowerMove(3,'A','B','C');
     return 0;
     
+    
+}
+
+
+void ListInit(list* plist);
+
+void LInsert(list *plist,LData data);
+
+int LFirst(List *plist,LData *data);
+
+int LNext(List *plist, LData *data);
+
+LData LRemove(list *plist);
+
+int LCount(list *plist);
+
+int main()
+{
+    list list;
+    int data;
+    ListInit(&list);
+
+    LInsert(&list, 11); LInsert(&list, 11);
+    LInsert(&list, 22); LInsert(&list, 22);
+    LInsert(&list, 33);
+    
+    cout<<"현재 데이터의 수:"<<LCount(&list)<<endl;
+
+    if(LFirst(&list, &data))
+    {
+        cout<<data<<endl;
+
+        while(LNext(&list,&data))
+            cout<<"data"<<endl;
+    }
+    cout<<endl<<endl;
+
+    if(LFirst(&list,&data))
+    {
+        if(data==22)
+            LRemove(&list);
+
+            while(LNext(&list,&data))
+            {
+                if(data==22)
+                    LRemove(&list);
+            }
+    }
+    
+    cout<<"현재 데이터의 수:"<<LCount(&list)<<endl;
+
+    if(LFirst(&list, &data))
+    {
+        cout<<data<<endl;
+
+        while(LNext(&list,&data))
+            cout<<"data"<<endl;
+    }
+    cout<<endl<<endl;
+
+    return 0;
 }
