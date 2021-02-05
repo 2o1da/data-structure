@@ -244,11 +244,54 @@ typedef struct __ArrayList
 
 typedef ArrayList List;
 
-void ListInit(List *plist);
-void LInsert(List *plist, LData data);
+void ListInit(List *plist)
+{
+    (plist->numOfData)=0;
+    (plist->curPosition)=-1;
+}
 
-int LFirst(List *plist, LData *pdata);
-int LNext(List *plist, LData *pdata);
+void LInsert(List *plist, LData data)
+{
+    if(plist->numOfData>=LIST_LEN)
+    {
+        cout<<"저장불가\n";
+        return;
+    }
+}
 
-LData LRemove(List *plist);
+int LFirst(List *plist, LData *pdata)
+{
+    if(plist->numOfData==0)
+        return false;
+
+    (plist->curPosition)=0;
+    *pdata=plist->arr[0];
+    return true;
+}
+
+int LNext(List *plist, LData *pdata)
+{
+    if(plist->curPosition>=(plist->numOfData)-1)
+        return false;
+
+    (plist->curPosition)++;
+    *pdata=plist->arr[plist->curPosition];
+    return true;
+}
+
+LData LRemove(List *plist)
+{
+    int rpos=plist->curPosition;
+    int num=plist->numOfData;
+    int i;
+    LData rdata=plist->arr[rpos];
+
+    for(i=rpos;i<num-1;i++)
+        plist->arr[i]=plist->arr[i+1];
+
+    (plist->numOfData)--;
+    (plist->curPosition)--;
+    return rdata;
+}
+
 int LCount(List *plist);
