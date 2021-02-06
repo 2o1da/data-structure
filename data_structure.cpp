@@ -294,4 +294,45 @@ LData LRemove(List *plist)
     return rdata;
 }
 
-int LCount(List *plist);
+int LCount(List *plist)
+{
+    return plist->numOfData;
+}
+
+typedef struct_point
+{
+    int xpos;
+    int ypos;
+} Point;
+
+void SetPointPos(Point *ppos, int xpos, int ypos)
+{
+    ppos->xpos=xpos;
+    ppos->ypos=ypos;
+}
+
+void ShowPointPos(Point *ppos)
+{
+    cout<<"["<<ppos->xpos<<", "<<ppos->ypos<<endl;
+}
+
+int PointComp(Point *pos1, Point *pos2)
+{
+    if(pos1->xpos==pos2->xpos&&pos1->ypos==pos2->ypos)
+    {
+        return 0;
+    }
+
+    else if(pos1->xpos==pos2->xpos)
+    {
+        return 1;
+    }
+    
+    else if(pos1->ypos==pos2->ypos)
+    {
+        return 2;
+    }
+
+    else
+        return -1;
+}
