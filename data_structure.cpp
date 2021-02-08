@@ -412,3 +412,51 @@ int main()
 
     return 0;
 }
+
+int main()
+{
+    List list;
+    int data, i;
+    int sum=0;
+    int ListInit(&list);
+
+    for(i=1;i<10;i++)
+    {
+        LInsert(&list,i);
+    }
+
+    if(LFirst(&list,&data))
+    {
+        sum+=data;
+
+        while(LNext(&list,&data))
+        {
+            sum+=data;
+        }
+    } 
+    
+    cout<<"SUM:"<<sum<<endl;
+    
+    if(LFirst(&list,&data))
+    {
+        if(data%2==0||data%3==0)
+            LRemove(&list);
+
+        while(LNext(&list,&data))
+        {
+            if(data%2==0||data%3==0)
+                LRemove(&list);
+        }
+    }
+
+    if(LFirst(&list,&data))
+    {
+        cout<<data<<endl;
+
+        while(LNext(&list,&data))
+            cout<<data<<endl;
+    }
+    
+    cout<<endl;
+    return 0;
+}
