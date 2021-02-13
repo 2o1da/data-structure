@@ -1,16 +1,9 @@
 ﻿#include <iostream>
 using namespace std;
 
-int WhoIsPrecede(int d1, int d2)
-{
-	if (d1 < d2)
-		return 0;
-	else
-		return 1;
-}
-
 int main()
 {
+
 }
 
 

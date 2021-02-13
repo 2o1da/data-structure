@@ -215,6 +215,30 @@ int main()
 	return 0;
 }
 
+int main()
+{
+
+	while (1)
+	{
+		newNode = (Node*)malloc(sizeof(Node));
+		newNode->data = readData;
+		newNode->next = NULL;
+
+		if (head == NULL)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			newNode->next = head;
+			head = newNode;
+		}
+	}
+
+	return 0;
+}
+
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
