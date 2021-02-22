@@ -88,6 +88,60 @@ int main()
 	return 0;
 }
 
+#define CUS_COME_TERM 15
+
+#define CHE_BUR 0
+#define BUL_BUR 1
+#define DUB_BUR 2
+
+#define CHE_TERM 12
+#define BUL_TERM 15
+#define DUB_TERM 24
+
+int main()
+{
+	int makeProc = 0;
+	int cheOrder = 0, bulOrder = 0, dubOrder = 0;
+	int sec;
+
+	Queue que;
+
+	QueueInit(&que);
+	srand(time(NULL));
+
+	for (sec = 0; sec < 3600; sec++)
+	{
+		if (sec % CUS_COME_TERM == 0)
+		{
+			switch (rand() % 3)
+			{
+			case CHE_BUR:
+				Enquque(&que, CHE_TERM);
+				cheOrder += 1;
+				break;
+			case BUL_BUR:
+				Enquque(&que, BUL_TERM);
+				bulOrder += 1;
+				break;
+			case DUB_BUR:
+				Enquque(&que, DUB_TERM);
+				dubOrder += 1;
+				break;
+			}
+		}
+
+		if (makeProc <= 0 && !QIsEmpty(&que))
+			makeProc = Dequeue(&que);
+
+		makeProc--;
+	}
+
+	cout << "시뮬레이션 레포트\n";
+	cout << "치즈버거:" << cheOrder << endl;
+	cout << "불고기버거:" << bulOrder << endl;
+	cout << "더블버거:" << dubOrder << endl;	
+}
+
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 
